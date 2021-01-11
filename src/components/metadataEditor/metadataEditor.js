@@ -164,7 +164,8 @@ import template from './metadataEditor.template.html';
                 return !c.checked;
             }).map(function (c) {
                 return c.getAttribute('data-value');
-            })
+            }),
+            MinHoursBetweenReplays: form.querySelector('#txtMinHoursBetweenReplays').value
         };
 
         item.ProviderIds = Object.assign({}, currentItem.ProviderIds);
@@ -699,6 +700,12 @@ import template from './metadataEditor.template.html';
             context.querySelector('#selectDisplayOrder').innerHTML = '';
             hideElement('#fldDisplayOrder', context);
         }
+
+        if (item.MediaType === 'Series' || item.Type === 'Movie') {
+            showElement('#moderationSection', context);
+        } else {
+            hideElement('#moderationSection', context);
+        }
     }
 
     function fillItemInfo(context, item, parentalRatingOptions) {
@@ -829,6 +836,7 @@ import template from './metadataEditor.template.html';
         } else {
             context.querySelector('#txtSeriesRuntime', context).value = '';
         }
+        context.querySelector('#txtMinHoursBetweenReplays').value = item.MinHoursBetweenReplays || 0;
     }
 
     function populateRatings(allParentalRatings, select, currentValue) {

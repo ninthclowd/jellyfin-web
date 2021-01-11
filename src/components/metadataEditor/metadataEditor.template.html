@@ -162,7 +162,6 @@
                     <select is="emby-select" id="selectDisplayOrder" label="${LabelDisplayOrder}"></select>
                     <div class="fieldDescription seriesDisplayOrderDescription">${SeriesDisplayOrderHelp}</div>
                 </div>
-
             </div>
 
             <div class="detailSection hide" id="collapsibleSpecialEpisodeInfo">
@@ -182,6 +181,15 @@
                 </div>
             </div>
 
+            <div class="hide" id="moderationSection">
+                <h2>${HeaderEnforceModeration}</h2>
+                <div>
+                    <div id="fldMinHoursBetweenReplays" class="inputContainer">
+                        <input is="emby-input" id="txtMinHoursBetweenReplays" type="number" step="1" min="0" max="1000" label="${LabelMinHoursBetweenReplays}" />
+                    </div>
+                </div>
+            </div>
+
             <div class="detailSection externalIdsSection hide">
                 <h2>
                     ${HeaderExternalIds}
@@ -189,6 +197,7 @@
                 <div class="externalIds editorFieldset">
                 </div>
             </div>
+
 
             <div id="genresCollapsible" class="editableListviewContainer hide" style="margin-top: 3em;">
                 <h2 style="margin:.6em 0;vertical-align:middle;display:inline-block;">

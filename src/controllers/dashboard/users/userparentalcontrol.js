@@ -102,6 +102,9 @@ import toast from '../../../components/toast/toast';
             $('.accessScheduleSection', page).show();
         }
 
+        const chkEnforceModeration = page.querySelector('#chkEnforceModeration');
+        chkEnforceModeration.checked = user.Policy.EnforceModeration;
+
         renderAccessSchedule(page, user.Policy.AccessSchedules || []);
         loading.hide();
     }
@@ -175,6 +178,7 @@ import toast from '../../../components/toast/toast';
         });
         user.Policy.AccessSchedules = getSchedulesFromPage(page);
         user.Policy.BlockedTags = getBlockedTagsFromPage(page);
+        user.Policy.EnforceModeration = $('#chkEnforceModeration', page).is(':checked');
         ApiClient.updateUserPolicy(user.Id, user.Policy).then(function () {
             onSaveComplete(page);
         });
