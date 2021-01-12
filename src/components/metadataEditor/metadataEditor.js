@@ -701,7 +701,7 @@ import template from './metadataEditor.template.html';
             hideElement('#fldDisplayOrder', context);
         }
 
-        if (item.MediaType === 'Series' || item.Type === 'Movie') {
+        if (item.Type === 'Series' || item.Type === 'Movie') {
             showElement('#moderationSection', context);
         } else {
             hideElement('#moderationSection', context);
