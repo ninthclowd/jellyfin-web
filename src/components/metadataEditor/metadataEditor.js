@@ -703,8 +703,10 @@ import template from './metadataEditor.template.html';
 
         if (item.Type === 'Series' || item.Type === 'Movie') {
             showElement('#moderationSection', context);
+            console.debug('showing moderation. item type: ' + item.type);
         } else {
             hideElement('#moderationSection', context);
+            console.debug('hiding moderation. item type: ' + item.type);
         }
     }
 
